@@ -1,0 +1,62 @@
+name: Photo offer
+description: Offer a photo of a site under an open licence.
+title: "[Photo] "
+labels: ["photo-offer"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Jomidarpedia only shows photos under an open licence, credited to the photographer. Please offer only photos you took yourself.
+        You can attach the photo below, or link to it (for example on Wikimedia Commons or Flickr). Full-size originals are best.
+  - type: input
+    id: site_id
+    attributes:
+      label: Site ID
+      description: Shown at the bottom of the site page, for example JB-DHK-064.
+      placeholder: JB-DHK-064
+  - type: input
+    id: page_url
+    attributes:
+      label: Page address
+      placeholder: https://…
+  - type: textarea
+    id: photo
+    attributes:
+      label: The photo
+      description: Drag the image here, or paste a link to it.
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What does it show, and when was it taken?
+      placeholder: South façade from the courtyard, March 2026.
+    validations:
+      required: true
+  - type: dropdown
+    id: licence
+    attributes:
+      label: Licence
+      description: CC BY-SA 4.0 matches the rest of the site. Any of these lets Jomidarpedia use the photo with your credit.
+      options:
+        - CC BY-SA 4.0 (others must credit you and share alike)
+        - CC BY 4.0 (others must credit you)
+        - CC0 (public domain, no credit required)
+    validations:
+      required: true
+  - type: input
+    id: credit
+    attributes:
+      label: How should we credit you?
+      placeholder: Your name or handle
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Please confirm
+      options:
+        - label: I took this photo myself and can license it as chosen above.
+          required: true
+        - label: I understand this issue is public.
+          required: true

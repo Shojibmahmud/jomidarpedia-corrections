@@ -1,0 +1,65 @@
+name: Correction
+description: Something on a site or trip page is wrong, out of date or missing.
+title: "[Correction] "
+labels: ["correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping. Issues are public, so please leave out phone numbers, addresses and other private details.
+        ইংরেজি বা বাংলা, যেকোনো ভাষায় লিখতে পারেন।
+  - type: input
+    id: site_id
+    attributes:
+      label: Site or trip ID
+      description: Shown at the bottom of the page, for example JB-DHK-064 or IT-DHK-001-1. Leave blank if you don't know it.
+      placeholder: JB-DHK-064
+  - type: input
+    id: page_url
+    attributes:
+      label: Page address
+      placeholder: https://…
+  - type: dropdown
+    id: field
+    attributes:
+      label: What does it concern?
+      options:
+        - Name or spelling (English or Bangla)
+        - Map location
+        - History or ownership
+        - Architecture
+        - Present condition
+        - Opening hours or entry fee
+        - Getting there (routes, fares, times)
+        - Day-trip plan or budget
+        - Photo or photo credit
+        - Legend or oral history
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What is wrong or missing?
+    validations:
+      required: true
+  - type: textarea
+    id: correct
+    attributes:
+      label: What should it say?
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: How do you know?
+      description: A book or article (title, author, page or link), a sign at the site, or your own visit with its date.
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Please confirm
+      options:
+        - label: I understand this issue is public.
+          required: true
